@@ -29,11 +29,6 @@
         "title": "Verify Experiment Results",
         "text": "step5/text.md",
         "code": "step5/verify.sh"
-      },
-      {
-        "title": "Cleanup Environment",
-        "text": "step6/text.md",
-        "code": "step6/verify.sh"
       }
     ],
     "intro": {
