@@ -40,42 +40,17 @@
     "assets": {
       "host01": [
         {
-          "file": "app-deploy.yaml",
+          "file": "backend.yaml",
           "target": "/root",
           "chmod": "+w"
         },
         {
-          "file": "pod-delete-experiment.yaml",
+          "file": "deployment.yaml",
           "target": "/root",
           "chmod": "+w"
         },
         {
-          "file": "litmus-crds.yaml",
-          "target": "/root",
-          "chmod": "+w"
-        },
-        {
-          "file": "litmus-operator.yaml",
-          "target": "/root",
-          "chmod": "+w"
-        },
-        {
-          "file": "pod-delete-engine.yaml",
-          "target": "/root",
-          "chmod": "+w"
-        },
-        {
-          "file": "rbac-default.yaml",
-          "target": "/root",
-          "chmod": "+w"
-        },
-        {
-          "file": "litmus-rbac.yaml",
-          "target": "/root",
-          "chmod": "+w"
-        },
-        {
-          "file": "chaosengine-poddelete.yaml",
+          "file": "service.yaml",
           "target": "/root",
           "chmod": "+w"
         }
