@@ -3,6 +3,10 @@
 Verify Kubernetes cluster status and access permissions.
 
 ```
+kubectl get pods -n default -w
+```
+
+```
 kubectl create deployment frontend --image=nginx -n default
 kubectl scale deployment frontend --replicas=2 -n default
 kubectl label deployment frontend app=frontend -n default
