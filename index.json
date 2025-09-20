@@ -1,0 +1,97 @@
+{
+  "title": "Pod Delete Chaos Experiment",
+  "description": "Learn how to perform a Pod Delete chaos engineering experiment",
+  "difficulty": "Beginner",
+  "time": "20 minutes",
+  "details": {
+    "steps": [
+      {
+        "title": "Environment Preparation",
+        "text": "step1/text.md",
+        "code": "step1/verify.sh"
+      },
+      {
+        "title": "Deploy Sample Application",
+        "text": "step2/text.md",
+        "code": "step2/verify.sh"
+      },
+      {
+        "title": "Install Litmus Chaos Framework",
+        "text": "step3/text.md",
+        "code": "step3/verify.sh"
+      },
+      {
+        "title": "Execute Pod Delete Experiment",
+        "text": "step4/text.md",
+        "code": "step4/verify.sh"
+      },
+      {
+        "title": "Verify Experiment Results",
+        "text": "step5/text.md",
+        "code": "step5/verify.sh"
+      },
+      {
+        "title": "Cleanup Environment",
+        "text": "step6/text.md",
+        "code": "step6/verify.sh"
+      }
+    ],
+    "intro": {
+      "text": "intro.md"
+    },
+    "finish": {
+      "text": "finish.md"
+    },
+    "assets": {
+      "host01": [
+        {
+          "file": "app-deploy.yaml",
+          "target": "/root",
+          "chmod": "+w"
+        },
+        {
+          "file": "pod-delete-experiment.yaml",
+          "target": "/root",
+          "chmod": "+w"
+        },
+        {
+          "file": "litmus-crds.yaml",
+          "target": "/root",
+          "chmod": "+w"
+        },
+        {
+          "file": "litmus-operator.yaml",
+          "target": "/root",
+          "chmod": "+w"
+        },
+        {
+          "file": "pod-delete-engine.yaml",
+          "target": "/root",
+          "chmod": "+w"
+        },
+        {
+          "file": "rbac-default.yaml",
+          "target": "/root",
+          "chmod": "+w"
+        },
+        {
+          "file": "litmus-rbac.yaml",
+          "target": "/root",
+          "chmod": "+w"
+        },
+        {
+          "file": "chaosengine-poddelete.yaml",
+          "target": "/root",
+          "chmod": "+w"
+        }
+      ]
+    }
+  },
+  "environment": {
+    "uilayout": "terminal",
+    "uimessage1": "Waiting for Kubernetes cluster to be ready..."
+  },
+  "backend": {
+    "imageid": "kubernetes"
+  }
+}
