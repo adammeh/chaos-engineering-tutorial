@@ -3,7 +3,9 @@
 Verify Kubernetes cluster status and access permissions.
 
 ```
-kubectl apply -f deployment.yaml
+kubectl create deployment backend --image=hashicorp/http-echo -n default
+kubectl scale deployment backend --replicas=2 -n default
+kubectl label deployment backend app=backend -n default
 ```
 
 ```

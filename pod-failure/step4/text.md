@@ -3,10 +3,11 @@
 DELETE POD
 
 ```
-kubectl get pods -l app=hello-nginx -w
-```
+# Pick one random pod from all apps
+POD=$(kubectl get pods -n default -l 'app in (frontend,backend)' -o jsonpath='{.items[*].metadata.name}' | tr ' ' '\n' | shuf -n 1)
 
+# Delete the pod (simulate failure)
+kubectl delete pod $POD -n default
+
+echo "Chaos triggered! Pod $POD deleted. Watch self-healing"
 ```
-kubectl delete pod -l app=hello-nginx --field-selector metadata.name=hello-nginx-xxxxx
-```
-(replace hello-nginx-xxxxx with the actual pod name)
