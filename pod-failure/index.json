@@ -53,16 +53,6 @@
           "file": "backend.yaml",
           "target": "/root",
           "chmod": "+w"
-        },
-        {
-          "file": "deployment.yaml",
-          "target": "/root",
-          "chmod": "+w"
-        },
-        {
-          "file": "service.yaml",
-          "target": "/root",
-          "chmod": "+w"
         }
       ]
     }
