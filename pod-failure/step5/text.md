@@ -11,9 +11,8 @@ This allows for the observation of the pods and what happens to them.
 
 We then pick and delete one backend pod at random by running:
 ```
-POD=$(kubectl get pods -n chaos-lab -l app=backend -o jsonpath='{.items[*].metadata.name}' | tr ' ' '\n' | shuf 
--n 1)
-kubectl delete pod $POD -n default
+POD=$(kubectl get pods -n chaos-lab -l app=backend -o jsonpath='{.items[*].metadata.name}' | tr ' ' '\n' | shuf -n 1)
+kubectl delete pod $POD -n chaos-lab
 ```
 
 By deleting a Pod, we simulate a failure (just like chaos engineering). Watch the curl loop. You should see something that looks like this:
@@ -25,7 +24,3 @@ Hello from backend
 Since we delete the existing pod, when curl sends a request to the backend, it fails to connect. However, Kubernetes automatically spins up a new Pod to restore the deleted one which causes is why it returns to normal right after.
 
 We can improve on this though.
-
-: requests continue without interruption, because the Service routes traffic to the healthy Pod.
-
-At the same time, Kubernetes automatically spins up a new Pod to maintain the desired 2 replicas. This demonstrates self-healing and high availability.

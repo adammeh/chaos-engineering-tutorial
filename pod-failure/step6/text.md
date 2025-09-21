@@ -8,11 +8,10 @@ We can now ensure that we do not see any failure if one Pod goes down. If you no
 
 ```
 kubectl run curlpod --rm -i --tty --image=curlimages/curl -- sh
-while true; do curl http://backend.default.svc.cluster.local:5678; sleep 1; done
+while true; do curl http://backend.chaos-lab.svc.cluster.local:5678; sleep 1; done
 ```
 
 ```
-POD=$(kubectl get pods -n chaos-lab -l app=backend -o jsonpath='{.items[*].metadata.name}' | tr ' ' '\n' | shuf 
--n 1)
-kubectl delete pod $POD -n default
+POD=$(kubectl get pods -n chaos-lab -l app=backend -o jsonpath='{.items[*].metadata.name}' | tr ' ' '\n' | shuf -n 1)
+kubectl delete pod $POD -n chaos-lab
 ```
