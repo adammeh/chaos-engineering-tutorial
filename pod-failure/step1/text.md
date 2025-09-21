@@ -1,9 +1,8 @@
-# Step 1: Environment Preparation
+# Step 1: Create a Namespace for the Lab
 
-Verify Kubernetes cluster status and access permissions.
+Namespaces act like folders in Kubernetes. By creating a namespace called chaos-lab, we isolate all resources for this tutorial. This makes it easier to manage and, at the end, we can clean up everything with a single delete command.
 
 ```
 kubectl create namespace chaos-lab
+kubectl config set-context --current --namespace=chaos-lab
 ```
-
-what does this even do?

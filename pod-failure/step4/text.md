@@ -1,19 +1,16 @@
-# Step 1: Environment Preparation
-
-DELETE POD
+# Step 4: Generate Continuous Traffic
 
 
-```
-kubectl scale deployment backend --replicas=2
+We start by running a temporary Pod with curl:
 
 ```
+kubectl run curlpod --rm -i --tty --image=curlimages/curl -- sh
+```
+
+Then inside the shell, we run
 
 ```
-# Pick one random pod from all apps
-POD=$(kubectl get pods -n default -l 'app in (frontend,backend)' -o jsonpath='{.items[*].metadata.name}' | tr ' ' '\n' | shuf -n 1)
-
-# Delete the pod (simulate failure)
-kubectl delete pod $POD -n default
-
-echo "Chaos triggered! Pod $POD deleted. Watch self-healing"
+while true; do curl http://backend.default.svc.cluster.local:5678; sleep 1; done
 ```
+
+This command continuously sends a request to the backend Service every second and prints the response. It simulates a client application making repeated calls, so we can observe what happens during failures.

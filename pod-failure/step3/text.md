@@ -1,18 +1,13 @@
-# Step 1: Environment Preparation
-
-DELETE POD
+# Step 3: Deploy a Backend Application
 
 
-```
-kubectl get pods -n default -w
-```
+A Service groups Pods and provides a stable network endpoint. Even if individual Pods come and go, the Service ensures clients can always connect to the application without worrying about Pod IPs.
 
 ```
-# Pick one random pod from all apps
-POD=$(kubectl get pods -n default -l 'app in (frontend,backend)' -o jsonpath='{.items[*].metadata.name}' | tr ' ' '\n' | shuf -n 1)
+kubectl expose deployment backend --name=backend --port=5678 --target-port=5678
+```
 
-# Delete the pod (simulate failure)
-kubectl delete pod $POD -n default
-
-echo "Chaos triggered! Pod $POD deleted. Watch self-healing"
+We can check the running services with:
+```
+kubectl get svc backend
 ```

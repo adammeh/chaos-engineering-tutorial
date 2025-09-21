@@ -1,10 +1,12 @@
-# Step 1: Environment Preparation
+# Step 2: Deploy a Backend Application
 
-Verify Kubernetes cluster status and access permissions.
+We deploy a simple backend using hashicorp/http-echo. This container listens on port 5678 and returns the text Hello from backend whenever it receives a request.
 
 ```
 kubectl create deployment backend --image=hashicorp/http-echo --port=5678 -- /http-echo --text="Hello from backend"
 ```
+
+We can see the created Pods by running:
 
 ```
 kubectl get pods -n default
