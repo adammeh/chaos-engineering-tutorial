@@ -2,6 +2,12 @@
 
 DELETE POD
 
+
+```
+kubectl scale deployment backend --replicas=2
+
+```
+
 ```
 # Pick one random pod from all apps
 POD=$(kubectl get pods -n default -l 'app in (frontend,backend)' -o jsonpath='{.items[*].metadata.name}' | tr ' ' '\n' | shuf -n 1)
