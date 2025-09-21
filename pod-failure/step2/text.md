@@ -18,4 +18,4 @@ NAME                            READY   STATUS    RESTARTS   AGE
 backend-xxxxx                    1/1    Running       0      10s
 ```
 
-If it doesn't say 1/1 under "READY", wait a bit and check again.
+If it doesn't say "1/1" under "READY" and "Running" under "STATUS", wait a bit and check again.

@@ -4,14 +4,14 @@ DELETE POD
 
 In another terminal, first run:
 ```
-kubectl get pods -n default -w
+kubectl get pods -l app=backend -w
 ```
 This allows for the observation of the pods and what happens to them.
 
 
 We then pick and delete one backend pod at random by running:
 ```
-POD=$(kubectl get pods -n default -l app=backend -o jsonpath='{.items[*].metadata.name}')
+POD=$(kubectl get pods -n default -l app=backend -o jsonpath='{.items[*].metadata.name}' | tr ' ' '\n' | shuf -n 1)
 kubectl delete pod $POD -n default
 ```
 

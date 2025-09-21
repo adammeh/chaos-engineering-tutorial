@@ -12,6 +12,6 @@ while true; do curl http://backend.default.svc.cluster.local:5678; sleep 1; done
 ```
 
 ```
-POD=$(kubectl get pods -n default -l app=backend -o jsonpath='{.items[*].metadata.name}')
+POD=$(kubectl get pods -n default -l app=backend -o jsonpath='{.items[*].metadata.name}' | tr ' ' '\n' | shuf -n 1)
 kubectl delete pod $POD -n default
 ```
