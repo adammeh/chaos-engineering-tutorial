@@ -11,7 +11,8 @@ This allows for the observation of the pods and what happens to them.
 
 We then pick and delete one backend pod at random by running:
 ```
-POD=$(kubectl get pods -n default -l app=backend -o jsonpath='{.items[*].metadata.name}' | tr ' ' '\n' | shuf -n 1)
+POD=$(kubectl get pods -n chaos-lab -l app=backend -o jsonpath='{.items[*].metadata.name}' | tr ' ' '\n' | shuf 
+-n 1)
 kubectl delete pod $POD -n default
 ```
 
