@@ -38,7 +38,7 @@ What’s happening:
 - Some requests may fail while Kubernetes spins up a new Pod to replace the deleted one.
 - Once the new Pod is ready, traffic resumes normally.
 
-As seen from the example outcome, the failure happened after 4 ms. It could also be as extreme as:
+As seen from the example outcome, the failure happened after 4 ms. It could also be as extreme as 134268 ms:
 ```
 curl: (28) Failed to connect to backend.chaos-lab.svc.cluster.local port 5678 after 134268 ms: Could not connect to server
 ```
