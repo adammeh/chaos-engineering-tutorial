@@ -22,4 +22,3 @@ Kubernetes promises built-in resilience. This tutorial will demonstrate how to d
 - Basic Kubernetes knowledge
 - Understanding of Pods, Deployments, and other basic concepts
 
-Click "Next" to continue →
