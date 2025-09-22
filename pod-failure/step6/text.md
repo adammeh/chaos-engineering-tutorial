@@ -31,8 +31,12 @@ backend-yyyyy                    1/1    Running       0      Xs
 
 ## Rerun the Curl client
 
-```'kubectl run curlpod --rm -i --tty --image=curlimages/curl -- sh```{{copy}}
-```while true; do curl http://backend.chaos-lab.svc.cluster.local:5678; sleep 1; done```{{copy}}
+```
+'kubectl run curlpod --rm -i --tty --image=curlimages/curl -- sh
+```{{copy}}
+```
+while true; do curl http://backend.chaos-lab.svc.cluster.local:5678; sleep 1; done
+```{{copy}}
 
 Then, in another terminal, delete a Pod at random:
 ```
