@@ -20,7 +20,7 @@ A Pod is the smallest deployable unit in Kubernetes — basically, a single inst
 kubectl create deployment backend \
   --image=hashicorp/http-echo \
   --port=5678 -- /http-echo --text="Hello from backend"
-```
+```{{copy}}
 
 What does this command do?
 - `kubectl create deployment backend` Creates a Deployment called ´backend´. A Deployment ensures a desired number of Pods are always running, automatically restarting or replacing them if they fail.
@@ -31,7 +31,7 @@ What does this command do?
 ## Verify the Pod is running
 ```
 kubectl get pods -l app=backend
-```
+```{{copy}}
 
 Expected output:
 ```

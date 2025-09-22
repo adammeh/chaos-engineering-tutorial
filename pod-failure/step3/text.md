@@ -15,7 +15,7 @@ kubectl expose deployment backend \
   --name=backend \
   --port=5678 \
   --target-port=5678
-```
+```{{copy}}
 
 Command breakdown:
 - `kubectl expose deployment backend` → Exposes the Deployment as a network-accessible Service.
@@ -26,7 +26,7 @@ Command breakdown:
 ## Verify the Service
 ```
 kubectl get svc backend
-```
+```{{copy}}
 Expected output:
 ```
 NAME      TYPE        CLUSTER-IP     EXTERNAL-IP   PORT(S)    AGE

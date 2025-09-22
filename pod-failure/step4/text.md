@@ -7,7 +7,7 @@ We’ll do this by running a temporary Pod that continuously sends HTTP requests
 ## Run a temporary curl Pod
 ```
 kubectl run curlpod --rm -i --tty --image=curlimages/curl -- sh
-```
+```{{copy}}
 Command breakdown:
 - `kubectl run curlpod` → Creates a temporary Pod named curlpod.
 - `-- sh` → Opens a shell inside the Pod.
@@ -15,7 +15,7 @@ Command breakdown:
 ## Continuously send requests to the backend
 ```
 while true; do curl http://backend.chaos-lab.svc.cluster.local:5678; sleep 1; done
-```
+```{{copy}}
 
 What you should see:
 ```
