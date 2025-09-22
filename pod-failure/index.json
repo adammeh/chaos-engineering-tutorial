@@ -5,37 +5,30 @@
   "details": {
     "steps": [
       {
-        "title": "Create a Namespace for the Lab",
         "text": "step1/text.md",
         "code": "step1/verify.sh"
       },
       {
-        "title": "Deploy a Backend Application",
         "text": "step2/text.md",
         "code": "step2/verify.sh"
       },
       {
-        "title": "Deploy a Backend Application",
         "text": "step3/text.md",
         "code": "step3/verify.sh"
       },
       {
-        "title": "Generate Continuous Traffic",
         "text": "step4/text.md",
         "code": "step4/verify.sh"
       },
       {
-        "title": "Simulate Pod Failures",
         "text": "step5/text.md",
         "code": "step5/verify.sh"
       },
       {
-        "title": "Create Pod replica",
         "text": "step6/text.md",
         "code": "step6/verify.sh"
       },
       {
-        "title": "Clean Up",
         "text": "step7/text.md",
         "code": "step7/verify.sh"
       }
