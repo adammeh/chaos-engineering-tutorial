@@ -10,9 +10,6 @@ kubectl run curlpod --rm -i --tty --image=curlimages/curl -- sh
 ```
 Command breakdown:
 - `kubectl run curlpod` → Creates a temporary Pod named curlpod.
-- `--rm` → Deletes the Pod automatically when it exits.
-- `-i --tty` → Makes it interactive so we can type commands inside.
-- `--image=curlimages/curl` → Uses a lightweight image with curl installed.
 - `-- sh` → Opens a shell inside the Pod.
 
 ## Continuously send requests to the backend
