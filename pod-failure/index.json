@@ -43,7 +43,7 @@
     "assets": {
       "host01": [
         {
-          "file": "backend.yaml",
+          "file": "cleanup-chaos.sh",
           "target": "/root",
           "chmod": "+w"
         }
