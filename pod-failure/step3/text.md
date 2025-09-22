@@ -12,7 +12,7 @@ We can check the running services with:
 kubectl get svc backend
 ```
 
-
+```
                                             +--------+
                                     -----> | Pod 1  |
    +---------+        +----------+          +--------+
@@ -20,6 +20,6 @@ kubectl get svc backend
    +---------+        +----------+          +--------+
                                     -----> | Pod 2  |
                                             +--------+
-
+```
 
 This figure shows how a Service sits between the Client and multiple Pods, providing a stable network endpoint regardless of pod IPs.
