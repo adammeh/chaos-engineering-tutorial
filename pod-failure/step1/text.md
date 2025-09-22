@@ -10,4 +10,4 @@ We can then set our kubectl default namespace to chaos-lab. By default, kubectl 
 ```
 kubectl config set-context --current --namespace=chaos-lab
 ```
-This command tells your current context: “Whenever I run kubectl commands, assume I mean inside chaos-lab.”
+This command essentially means: “Whenever I run kubectl commands, assume I mean inside chaos-lab.”
