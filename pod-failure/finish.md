@@ -1,4 +1,4 @@
-# Experiment Complete!
+# Tutorial Complete!
 
 Congratulations! You’ve successfully completed the Pod Failure Chaos tutorial in Kubernetes.
 
