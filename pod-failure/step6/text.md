@@ -5,7 +5,7 @@ This ensures that if one Pod goes down, the Service can route traffic to other h
 
 First, close the curlpod by doing `Ctrl + C`{{}} and then running `exit`{{}}.
 
-## Scale the backend deploymend
+### Scale the backend deploymend
 ```
 kubectl scale deployment backend --replicas=2
 ```{{copy}}
@@ -15,7 +15,7 @@ Command breakdown:
 
 Kubernetes will automatically create a second Pod identical to the first.
 
-## Verify the new Pods
+### Verify the new Pods
 ```
 kubectl get pods -l app=backend
 ```{{copy}}
@@ -28,7 +28,7 @@ backend-yyyyy                    1/1    Running       0      Xs
 - Now there are 2 Pods serving the same backend.
 - The Service will automatically load balance requests between them.
 
-## Rerun the Curl client
+### Rerun the Curl client
 
 ```
 'kubectl run curlpod --rm -i --tty --image=curlimages/curl -- sh

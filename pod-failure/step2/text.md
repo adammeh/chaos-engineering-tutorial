@@ -7,14 +7,14 @@ We’ll use the lightweight image ´hashicorp/http-echo´, which does two simple
 
 This makes it perfect for testing — no complex logic, just a predictable response we can monitor.
 
-## What is a Pod?
+### What is a Pod?
 
 A Pod is the smallest deployable unit in Kubernetes — basically, a single instance of an application.
 - Each Pod usually contains one container (the hashicorp/http-echo app in our case).
 - Pods can die, restart, or be replaced automatically.
 - Pods are managed by Deployments, which ensure the desired number of replicas are always running.
 
-## Deploy the backend with a Deployment
+### Deploy the backend with a Deployment
 ```
 kubectl create deployment backend \
   --image=hashicorp/http-echo \
@@ -27,7 +27,7 @@ What does this command do?
 - `--port=5678`{{}} Declares that the container listens on port 5678.
 - `-- /http-echo --text="Hello from backend"`{{}} Passes startup arguments to the container, telling it to echo back the text "Hello from backend".
 
-## Verify the Pod is running
+### Verify the Pod is running
 ```
 kubectl get pods -l app=backend
 ```{{copy}}

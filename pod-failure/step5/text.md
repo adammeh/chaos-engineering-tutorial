@@ -1,7 +1,7 @@
 
 In this step, we’ll intentionally delete a backend Pod to simulate a failure. This is the core of chaos engineering: causing a controlled disruption to test system resilience.
 
-## Observe the running Pods
+### Observe the running Pods
 
 Open a new terminal and run:
 ```
@@ -13,7 +13,7 @@ Command breakdown:
 
 This lets you monitor the Pods while you simulate the failure.
 
-## Pick and delete a Pod at random
+### Pick and delete a Pod at random
 ```
 POD=$(kubectl get pods -n chaos-lab -l app=backend -o jsonpath='{.items[*].metadata.name}' | tr ' ' '\n' | shuf -n 1)
 kubectl delete pod $POD -n chaos-lab
@@ -24,7 +24,7 @@ Command breakdown:
 - `shuf -n 1`{{}} → Randomly selects one Pod.
 - `kubectl delete pod $POD -n chaos-lab`{{}} → Deletes the selected Pod, simulating a failure.
 
-## Observe the effect
+### Observe the effect
 
 Switch back to the `curlpod` terminal. You might see output like:
 ```

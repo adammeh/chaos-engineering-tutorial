@@ -8,7 +8,7 @@ Analogy:
 - Pod = worker in a team.
 - Service = receptionist forwarding requests to any available worker.
 
-## Create a Service
+### Create a Service
 ```
 kubectl expose deployment backend \
   --name=backend \
@@ -22,7 +22,7 @@ Command breakdown:
 - `--port=5678`{{}} → Port that clients will connect to.
 - `--target-port=5678`{{}} → The port Pods are listening on.
 
-## Verify the Service
+### Verify the Service
 ```
 kubectl get svc backend
 ```{{copy}}
@@ -32,7 +32,7 @@ NAME      TYPE        CLUSTER-IP     EXTERNAL-IP   PORT(S)    AGE
 backend   ClusterIP   x.x.x.x        <none>        5678/TCP   10s
 ```
 
-## Diagram
+### Diagram
 ```
                                        +--------+
                                 -----> | Pod 1  |

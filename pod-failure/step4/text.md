@@ -3,7 +3,7 @@ Now that we have a backend application running and exposed via a Service, we nee
 
 We’ll do this by running a temporary Pod that continuously sends HTTP requests to the backend Service.
 
-## Run a temporary curl Pod
+### Run a temporary curl Pod
 ```
 kubectl run curlpod --rm -i --tty --image=curlimages/curl -- sh
 ```{{copy}}
@@ -11,7 +11,7 @@ Command breakdown:
 - `kubectl run curlpod`{{}} → Creates a temporary Pod named curlpod.
 - `-- sh`{{}} → Opens a shell inside the Pod.
 
-## Continuously send requests to the backend
+### Continuously send requests to the backend
 ```
 while true; do curl http://backend.chaos-lab.svc.cluster.local:5678; sleep 1; done
 ```{{copy}}
