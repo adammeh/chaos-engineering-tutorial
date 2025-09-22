@@ -10,7 +10,7 @@ This deletes the entire chaos-lab namespace and automatically removes all Pods, 
 
 Or, if you’re feeling adventurous, try the special cleanup script:
 
-````
+```
 chmod +x cleanup-chaos.sh
 ./cleanup-chaos.sh --yes
 ```{{copy}}

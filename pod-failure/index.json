@@ -11,7 +11,7 @@
       {
         "title": "Step 2: Deploy a Backend Application",
         "text": "step2/text.md",
-        "background": "step2/init.sh"
+        "background": "step2/background.sh"
       },
       {
         "title": "Step 3: Expose the Backend with a Service",
