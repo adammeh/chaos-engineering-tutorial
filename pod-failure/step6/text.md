@@ -1,6 +1,8 @@
 # Step 6: Create Pod replica
 
-If we close the curl Pod and create a replica of the backend pod with:
+Close the curl Pod by running 'Ctrl + C'.
+
+Now, if we create a replica of the backend pod with:
 ```
 kubectl scale deployment backend --replicas=2
 ```

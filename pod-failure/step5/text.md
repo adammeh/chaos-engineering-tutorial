@@ -18,9 +18,16 @@ kubectl delete pod $POD -n chaos-lab
 By deleting a Pod, we simulate a failure (just like chaos engineering). Watch the curl loop. You should see something that looks like this:
 ```
 Hello from backend
-curl: (7) Failed to connect to backend.default.svc.cluster.local port 5678 after 4 ms: Could not connect to server
+curl: (7) Failed to connect to backend.chaos-lab.svc.cluster.local port 5678 after 4 ms: Could not connect to server
 Hello from backend
 ```
 Since we delete the existing pod, when curl sends a request to the backend, it fails to connect. However, Kubernetes automatically spins up a new Pod to restore the deleted one which causes is why it returns to normal right after.
 
-We can improve on this though.
+As seen from the example outcome, the failure happened after 4 ms. It could also be as extreme as:
+```
+curl: (28) Failed to connect to backend.chaos-lab.svc.cluster.local port 5678 after 134268 ms: Could not connect to server
+```
+
+The time taken to receive this "fail" message depends on when the curl request is made relative to when the Pod is deleted. If curl sends a request right after the pod is deleted and kube-proxy already knows there are no endpoints, the connection is refused immediately. However, if curl sends a request right as the pod is being terminated, it may still try to forward the request to the “old” pod but since the pod is already gone or shutting down, the connection just hangs until it times out.
+
+How can we mitigate this risk?
