@@ -1,8 +1,7 @@
 {
-  "title": "Pod Delete Chaos Experiment",
-  "description": "Learn how to perform a Pod Delete chaos engineering experiment",
+  "title": "Chaos Engineering - Pod-Failure Tutorial",
+  "description": "Design a Pod-failure chaos experiment in Kubernetes.",
   "difficulty": "Beginner",
-  "time": "20 minutes",
   "details": {
     "steps": [
       {

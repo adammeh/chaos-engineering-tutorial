@@ -1,7 +1,4 @@
-# Chaos Engineering - Pod-Failure Experiment
-
 ## Introduction
-
 
 Modern systems run in distributed environments like Kubernetes, where failures are inevitable: nodes crash, pods restart, and networks glitch. Chaos engineering is the practice of intentionally injecting failures in order to test and strengthen system resilience before real outages occur.
 
