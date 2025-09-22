@@ -1,19 +1,47 @@
 # Step 6: Create Pod replica
 
-Close the curl Pod by running `Ctrl + C`.
+So far, we’ve seen that deleting a single Pod can temporarily cause some requests to fail. To improve resilience, Kubernetes allows us to run multiple replicas of a Pod.
 
-Now, if we create a replica of the backend pod with:
+This ensures that if one Pod goes down, the Service can route traffic to other healthy Pods, thereby preventing downtime entirely.
+
+First, close the curlpod by running `Ctrl + C`.
+
+## Scale the backend deploymend
 ```
 kubectl scale deployment backend --replicas=2
 ```
-We can now ensure that we do not see any failure if one Pod goes down. If you now rerun, the curl pod and once again, send requests to the backend, then cause one of the pods to fail, you will see that the curl requests always return with "Hello from backend". This happens because if a Pod that is used by a Service in Kubernetes goes down, it will reroute the traffic to a healthy Pod if one exists.
+Command breakdown:
+- `kubectl scale deployment backend` → Targets the backend Deployment.
+- `--replicas=2` → Tells Kubernetes to maintain 2 running Pods for this Deployment.
 
+Kubernetes will automatically create a second Pod identical to the first.
+
+## Verify the new Pods
 ```
-kubectl run curlpod --rm -i --tty --image=curlimages/curl -- sh
+kubectl get pods -l app=backend
+```
+Expected output:
+```
+NAME                            READY   STATUS    RESTARTS   AGE
+backend-xxxxx                    1/1    Running       0      Xs
+backend-yyyyy                    1/1    Running       0      Xs
+```
+- Now there are 2 Pods serving the same backend.
+- The Service will automatically load balance requests between them.
+
+
+## Rerun the Curl client
+```
+'kubectl run curlpod --rm -i --tty --image=curlimages/curl -- sh
 while true; do curl http://backend.chaos-lab.svc.cluster.local:5678; sleep 1; done
 ```
 
+Then, in another terminal, delete a Pod at random:
 ```
 POD=$(kubectl get pods -n chaos-lab -l app=backend -o jsonpath='{.items[*].metadata.name}' | tr ' ' '\n' | shuf -n 1)
 kubectl delete pod $POD -n chaos-lab
 ```
+
+What you’ll see:
+- Requests continue returning "Hello from backend" without any failure, even though a Pod was deleted.
+- Kubernetes reroutes traffic to the remaining healthy Pod while it recreates the deleted one.

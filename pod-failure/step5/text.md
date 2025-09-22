@@ -1,27 +1,42 @@
 # Step 5: Simulate Pod Failure
 
-DELETE POD
+In this step, we’ll intentionally delete a backend Pod to simulate a failure. This is the core of chaos engineering: causing a controlled disruption to test system resilience.
 
-In another terminal, first run:
+## Observe the running Pods
+
+Open a new terminal and run:
 ```
 kubectl get pods -l app=backend -w
 ```
-This allows for the observation of the pods and what happens to them.
+Command breakdown:
+- `-l app=backend` → Filters for Pods created by the backend Deployment.
+- `-w` → Watches the output in real-time, so you see Pods being added, deleted, or restarted.
 
+This lets you monitor the Pods while you simulate the failure.
 
-We then pick and delete one backend pod at random by running:
+## Pick and delete a Pod at random
 ```
 POD=$(kubectl get pods -n chaos-lab -l app=backend -o jsonpath='{.items[*].metadata.name}' | tr ' ' '\n' | shuf -n 1)
 kubectl delete pod $POD -n chaos-lab
 ```
+Command breakdown:
+- `kubectl get pods ...` → Lists the names of all backend Pods.
+- `tr ' ' '\n'` → Puts each Pod name on a separate line.
+- `shuf -n 1` → Randomly selects one Pod.
+- `kubectl delete pod $POD -n chaos-lab` → Deletes the selected Pod, simulating a failure.
 
-By deleting a Pod, we simulate a failure (just like chaos engineering). Watch the curl loop. You should see something that looks like this:
+## Observe the effect
+
+Switch back to the `curlpod` terminal. You might see output like:
 ```
 Hello from backend
 curl: (7) Failed to connect to backend.chaos-lab.svc.cluster.local port 5678 after 4 ms: Could not connect to server
 Hello from backend
 ```
-Since we delete the existing pod, when curl sends a request to the backend, it fails to connect. However, Kubernetes automatically spins up a new Pod to restore the deleted one which causes is why it returns to normal right after.
+What’s happening:
+- When the Pod is deleted, the Service temporarily loses one of its endpoints.
+- Some requests may fail while Kubernetes spins up a new Pod to replace the deleted one.
+- Once the new Pod is ready, traffic resumes normally.
 
 As seen from the example outcome, the failure happened after 4 ms. It could also be as extreme as:
 ```
