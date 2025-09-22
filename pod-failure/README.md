@@ -1,17 +1,12 @@
-# Chaos Engineering with LitmusChaos: Pod Kill Experiment
 
-In this tutorial, you will learn how to use **LitmusChaos** to inject failures into a Kubernetes cluster and observe how the system recovers.  
-We will use a simple demo application, delete one of its Pods using a chaos experiment, and analyze the self-healing behavior.
+In this tutorial, you will learn how to:
+1. Design a small chaos experiment in Kubernetes.
+2. Inject pod-level failures in a controlled way.
+3. Observe how the system behaves under failure.
+4. Compare recovery with single vs multiple pod replicas.
+5. Understand how Kubernetes self-healing contributes to reliability in DevOps.
 
----
-
-## Learning Objectives
-
-By the end of this tutorial, you will be able to:
-1. Deploy a demo application in Kubernetes.
-2. Install and configure LitmusChaos.
-3. Run a **Pod-Delete Chaos Experiment** to simulate Pod failures.
-4. Observe how Kubernetes automatically recovers from failure.
-5. Analyze results and suggest improvements to system resilience.
-
----
+### Intended Learning Outcomes
+1. Explain the purpose of chaos engineering and why it matters in DevOps.
+2. Describe the roles of Pods, Deployments, and Services in Kubernetes.
+3. Interpret the behavior of a system under controlled Pod failure.
