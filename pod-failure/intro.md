@@ -19,6 +19,8 @@ In this tutorial, you will learn how to:
 5. Understand how Kubernetes self-healing contributes to reliability in DevOps.
 
 ### Intended Learning Outcomes
+
+After this tutorial, you should be able to:
 1. Explain the purpose of chaos engineering and why it matters in DevOps.
 2. Describe the roles of Pods, Deployments, and Services in Kubernetes.
 3. Interpret the behavior of a system under controlled Pod failure.
