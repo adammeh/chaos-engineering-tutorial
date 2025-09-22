@@ -7,7 +7,7 @@ In this step, we’ll intentionally delete a backend Pod to simulate a failure. 
 Open a new terminal and run:
 ```
 kubectl get pods -l app=backend -w
-```
+```{{copy}}
 Command breakdown:
 - `-l app=backend` → Filters for Pods created by the backend Deployment.
 - `-w` → Watches the output in real-time, so you see Pods being added, deleted, or restarted.
@@ -18,7 +18,7 @@ This lets you monitor the Pods while you simulate the failure.
 ```
 POD=$(kubectl get pods -n chaos-lab -l app=backend -o jsonpath='{.items[*].metadata.name}' | tr ' ' '\n' | shuf -n 1)
 kubectl delete pod $POD -n chaos-lab
-```
+```{{copy}}
 Command breakdown:
 - `kubectl get pods ...` → Lists the names of all backend Pods.
 - `tr ' ' '\n'` → Puts each Pod name on a separate line.

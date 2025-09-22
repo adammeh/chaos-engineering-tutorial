@@ -4,6 +4,6 @@ Once you’ve completed the chaos experiment, it’s important to clean up your 
 
 ```
 kubectl delete namespace chaos-lab
-```
+```{{copy}}
 
 This deletes the entire chaos-lab namespace and automatically removes all Pods, Deployments, Services, and other resources created for this tutorial.
