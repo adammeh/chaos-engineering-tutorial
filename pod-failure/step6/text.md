@@ -1,6 +1,6 @@
 # Step 6: Create Pod replica
 
-Close the curl Pod by running 'Ctrl + C'.
+Close the curl Pod by running `Ctrl + C`.
 
 Now, if we create a replica of the backend pod with:
 ```

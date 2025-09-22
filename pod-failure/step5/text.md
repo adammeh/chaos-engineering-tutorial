@@ -28,6 +28,6 @@ As seen from the example outcome, the failure happened after 4 ms. It could also
 curl: (28) Failed to connect to backend.chaos-lab.svc.cluster.local port 5678 after 134268 ms: Could not connect to server
 ```
 
-The time taken to receive this "fail" message depends on when the curl request is made relative to when the Pod is deleted. If curl sends a request right after the pod is deleted and kube-proxy already knows there are no endpoints, the connection is refused immediately. However, if curl sends a request right as the pod is being terminated, it may still try to forward the request to the “old” pod but since the pod is already gone or shutting down, the connection just hangs until it times out.
+The time taken to receive this "fail" message depends on when the curl request is made relative to when the Pod is deleted. If curl sends a request right after the pod is deleted, the connection is refused immediately since it already knows there are no endpoints. However, if curl sends a request right as the pod is being terminated, it may still try to forward the request to the “old” pod but since the pod is already gone or shutting down, the connection just hangs until it times out.
 
 How can we mitigate this risk?
