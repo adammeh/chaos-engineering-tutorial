@@ -6,12 +6,12 @@
     "steps": [
       {
         "title": "Step 1: Create a Namespace for the Lab",
-        "text": "step1/text.md",
-        "background": "step1/init.sh"
+        "text": "step1/text.md"
       },
       {
         "title": "Step 2: Deploy a Backend Application",
-        "text": "step2/text.md"
+        "text": "step2/text.md",
+        "background": "step1/init.sh"
       },
       {
         "title": "Step 3: Expose the Backend with a Service",
