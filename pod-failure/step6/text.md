@@ -1,4 +1,3 @@
-# Step 6: Create Pod replica
 
 So far, we’ve seen that deleting a single Pod can temporarily cause some requests to fail. To improve resilience, Kubernetes allows us to run multiple replicas of a Pod.
 

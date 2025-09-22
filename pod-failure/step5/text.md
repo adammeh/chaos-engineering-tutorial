@@ -1,4 +1,3 @@
-# Step 5: Simulate Pod Failure
 
 In this step, we’ll intentionally delete a backend Pod to simulate a failure. This is the core of chaos engineering: causing a controlled disruption to test system resilience.
 

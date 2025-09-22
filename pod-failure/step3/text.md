@@ -1,4 +1,3 @@
-# Step 3: Expose the Backend with a Service
 
 A Service in Kubernetes acts as a stable network endpoint for a group of Pods.
 - Pods can come and go, and each Pod gets its own dynamic IP.

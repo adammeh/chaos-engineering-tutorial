@@ -1,4 +1,3 @@
-# Step 2: Deploy a Backend Application
 
 In this step, we’ll create a simple backend application that will act as our target service for the chaos experiment.
 

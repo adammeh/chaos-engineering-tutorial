@@ -1,4 +1,3 @@
-# Step 4: Generate Continuous Traffic
 
 Now that we have a backend application running and exposed via a Service, we need to simulate real client traffic. This will allow us to observe what happens when a Pod fails.
 

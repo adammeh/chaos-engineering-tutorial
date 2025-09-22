@@ -1,4 +1,3 @@
-# Step 7: Clean Up
 
 Once you’ve completed the chaos experiment, it’s important to clean up your resources.
 
