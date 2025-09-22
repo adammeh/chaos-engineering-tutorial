@@ -4,7 +4,7 @@ So far, we’ve seen that deleting a single Pod can temporarily cause some reque
 
 This ensures that if one Pod goes down, the Service can route traffic to other healthy Pods, thereby preventing downtime entirely.
 
-First, close the curlpod by doing `Ctrl + C` and then running `exit`.
+First, close the curlpod by doing `Ctrl + C`{{}} and then running `exit`{{}}.
 
 ## Scale the backend deploymend
 ```
@@ -31,8 +31,8 @@ backend-yyyyy                    1/1    Running       0      Xs
 
 ## Rerun the Curl client
 
-`'kubectl run curlpod --rm -i --tty --image=curlimages/curl -- sh`
-`while true; do curl http://backend.chaos-lab.svc.cluster.local:5678; sleep 1; done`
+```'kubectl run curlpod --rm -i --tty --image=curlimages/curl -- sh```{{copy}}
+```while true; do curl http://backend.chaos-lab.svc.cluster.local:5678; sleep 1; done```{{copy}}
 
 Then, in another terminal, delete a Pod at random:
 ```
