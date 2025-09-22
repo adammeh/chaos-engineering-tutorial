@@ -9,8 +9,8 @@ Open a new terminal and run:
 kubectl get pods -l app=backend -w
 ```{{copy}}
 Command breakdown:
-- `-l app=backend` → Filters for Pods created by the backend Deployment.
-- `-w` → Watches the output in real-time, so you see Pods being added, deleted, or restarted.
+- `-l app=backend`{{}} → Filters for Pods created by the backend Deployment.
+- `-w`{{}} → Watches the output in real-time, so you see Pods being added, deleted, or restarted.
 
 This lets you monitor the Pods while you simulate the failure.
 
@@ -20,10 +20,10 @@ POD=$(kubectl get pods -n chaos-lab -l app=backend -o jsonpath='{.items[*].metad
 kubectl delete pod $POD -n chaos-lab
 ```{{copy}}
 Command breakdown:
-- `kubectl get pods ...` → Lists the names of all backend Pods.
-- `tr ' ' '\n'` → Puts each Pod name on a separate line.
-- `shuf -n 1` → Randomly selects one Pod.
-- `kubectl delete pod $POD -n chaos-lab` → Deletes the selected Pod, simulating a failure.
+- `kubectl get pods ...`{{}} → Lists the names of all backend Pods.
+- `tr ' ' '\n'`{{}} → Puts each Pod name on a separate line.
+- `shuf -n 1`{{}} → Randomly selects one Pod.
+- `kubectl delete pod $POD -n chaos-lab`{{}} → Deletes the selected Pod, simulating a failure.
 
 ## Observe the effect
 

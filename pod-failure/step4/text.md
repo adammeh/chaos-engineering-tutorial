@@ -9,8 +9,8 @@ We’ll do this by running a temporary Pod that continuously sends HTTP requests
 kubectl run curlpod --rm -i --tty --image=curlimages/curl -- sh
 ```{{copy}}
 Command breakdown:
-- `kubectl run curlpod` → Creates a temporary Pod named curlpod.
-- `-- sh` → Opens a shell inside the Pod.
+- `kubectl run curlpod`{{}} → Creates a temporary Pod named curlpod.
+- `-- sh`{{}} → Opens a shell inside the Pod.
 
 ## Continuously send requests to the backend
 ```

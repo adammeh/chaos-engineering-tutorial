@@ -24,9 +24,9 @@ kubectl create deployment backend \
 
 What does this command do?
 - `kubectl create deployment backend` Creates a Deployment called ´backend´. A Deployment ensures a desired number of Pods are always running, automatically restarting or replacing them if they fail.
-- `--image=hashicorp/http-echo` Tells Kubernetes to run a simple, lightweight HTTP server.
-- `--port=5678` Declares that the container listens on port 5678.
-- `-- /http-echo --text="Hello from backend"` Passes startup arguments to the container, telling it to echo back the text "Hello from backend".
+- `--image=hashicorp/http-echo`{{}} Tells Kubernetes to run a simple, lightweight HTTP server.
+- `--port=5678`{{}} Declares that the container listens on port 5678.
+- `-- /http-echo --text="Hello from backend"`{{}} Passes startup arguments to the container, telling it to echo back the text "Hello from backend".
 
 ## Verify the Pod is running
 ```
@@ -38,4 +38,4 @@ Expected output:
 NAME                            READY   STATUS    RESTARTS   AGE
 backend-xxxxx                    1/1    Running       0      10s
 ```
-If you see something like `ContainerCreating` or `Pending`, wait a few seconds and run the command again.
+If you see something like `ContainerCreating`{{}} or `Pending`{{}}, wait a few seconds and run the command again.

@@ -18,10 +18,10 @@ kubectl expose deployment backend \
 ```{{copy}}
 
 Command breakdown:
-- `kubectl expose deployment backend` → Exposes the Deployment as a network-accessible Service.
-- `--name=backend` → Names the Service backend.
-- `--port=5678` → Port that clients will connect to.
-- `--target-port=5678` → The port Pods are listening on.
+- `kubectl expose deployment backend`{{}} → Exposes the Deployment as a network-accessible Service.
+- `--name=backend`{{}} → Names the Service backend.
+- `--port=5678`{{}} → Port that clients will connect to.
+- `--target-port=5678`{{}} → The port Pods are listening on.
 
 ## Verify the Service
 ```
